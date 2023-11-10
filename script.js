@@ -10,7 +10,7 @@
  * 3. Mark a todo item as completed
  * 4. Delete a todo item
  * 5. Clear all completed todos
- *
+ * 
  * The following code is the starting point for this assignment.
  *
  * You will have to write the code to initialise the todoItems array and
@@ -31,7 +31,7 @@
  *
  */
 
-
+let todoItems = [];
 // Data storage - Initialize the array of To Do items
 //
 // NOTE:
@@ -55,8 +55,19 @@
 // the function does not need to return anything
 function addToDoItem(text) {
   // Implement the logic to add a task here
+  if(typeof text !=='string') {
+    console.log("invalid input, please enter a string");
+    return false;
+  }
 
-  console.log("NOT YET IMPLEMENTED"); // Remove this line when you start working on the function
+  let todoItem = {
+    id: todoItems.length,
+    text: text,
+    completed: false,
+  };
+
+  todoItems.push(todoItem);
+  return true;
 }
 
 // Function to remove a todo to the list
@@ -66,8 +77,17 @@ function addToDoItem(text) {
 // the function does not need to return anything
 function removeToDoItem(todoId) {
   // Implement the logic to add a task here
+  if(typeof todoId !=='number') {
+    console.log("invalid input, please enter a number");
+    return false;
+  }
 
-  console.log("NOT YET IMPLEMENTED"); // Remove this line when you start working on the function
+  for(let i=0; i < todoItems.length; i++) {
+    if(todoItems[i].id === todoId){
+      todoItems.splice(i, 1);
+      break;
+    }
+  }
 }
 
 // Function to mark a task as completed
@@ -77,8 +97,17 @@ function removeToDoItem(todoId) {
 // the function does not need to return anything
 function markToDoItemAsCompleted(todoId) {
   // Implement the logic to mark a task as completed here
+  if(typeof todoId !=='number') {
+    console.log("invalid input, please enter a number");
+    return false;
+  }
 
-  console.log("NOT YET IMPLEMENTED"); // Remove this line when you start working on the function
+  for(let i=0; i < todoItems.length; i++) {
+    if(todoitems[i].id === todoId){
+      todoitems[i].completed = true;
+      break;
+    }
+  }
 }
 
 // Function to delete a task from the array
@@ -89,8 +118,17 @@ function markToDoItemAsCompleted(todoId) {
 // true or false depending on whether the item was successfully deleted
 function deleteToDoItem(todoId) {
   // Implement the logic to remove a task here
+  if(typeof todoId !=='number') {
+    console.log("invalid input, please enter a number");
+    return false;
+  }
 
-  console.log("NOT YET IMPLEMENTED"); // Remove this line when you start working on the function
+  for(let i=0; i < todoItems.length; i++) {
+    if(todoItems[i].id === todoId){
+      todoItems.splice(i, 1);
+      break;
+    }
+  }
 }
 
 // Function to clear all completed tasks
@@ -98,9 +136,18 @@ function deleteToDoItem(todoId) {
 // as completed, remove it completely from the array
 function clearCompletedTasks() {
   // Implement the logic to clear completed tasks here
+  if(typeof todoId !=='number') {
+    console.log("invalid input, please enter a number");
+    return false;
+  }
 
-  console.log("NOT YET IMPLEMENTED"); // Remove this line when you start working on the function
+  for(let i=0; i < todoItems.length; i++) {
+    if(todoItems[i].completed === true){
+      todoItems.splice(i, 1);
+    }
+  }
 }
+
 
 // You can write your own tests here if you would like to test
 // your code before using the automated tests
@@ -109,3 +156,8 @@ function clearCompletedTasks() {
 //  console.log(todoItems); // This should show the todo item you added
 //  removeToDoItem(0); // This should remove the todo item with ID 0 from the array
 //  markToDoItemAsCompleted(0); // This should mark the todo item with ID 0 as completed
+console.log (deleteToDoItem("abcd"));
+console.log (addToDoItem(1234));
+console.log (removeToDoItemToDoItem("abcd"));
+console.log (clearCompletedTasks("abcd"));
+console.log (markToDoItemAsCompleted("abcd"));
